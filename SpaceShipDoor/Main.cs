@@ -19,9 +19,9 @@ public class Main : MonoBehaviour
     [HarmonyPatch(typeof(StartOfRound), "TeleportPlayerInShipIfOutOfRoomBounds")]
     public class StartOfRoundPatch
     {
-        private static bool Prefix()
+        private static bool Prefix(StartOfRound __instance)
         {
-            return false;
+            return !__instance.inShipPhase;
         }
     }
 }
